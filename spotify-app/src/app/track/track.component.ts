@@ -12,7 +12,8 @@ export class TrackComponent implements OnInit {
   //Osserva gli eventi sulla route tracks, restituisce la ParamMap che contiene tutti i   
   //parametri passati all’url
   routeObs: Observable<ParamMap> | undefined; 
-
+  obsTrack: Observable<Object> | undefined;
+  results: any;
   track : any; //Qui salverò la traccia selezionata
   
   //Usiamo la dependency injection per farci mandare i moduli del routing e dello    
@@ -27,6 +28,7 @@ export class TrackComponent implements OnInit {
     //Ottengo l'observable che notifica le informazioni sulla route attiva
     this.routeObs = this.route.paramMap;
     this.routeObs.subscribe(this.getRouterParam);
+    console.log (this.routeObs)
   }
 
   //Ogni volta che viene invocata la route tracks/:id, l'observable richiama questo metodo
@@ -34,7 +36,8 @@ export class TrackComponent implements OnInit {
   {
     let trackId = params.get('id'); //Ottengo l'id dalla ParamMap
     console.log (trackId); //Stampo su console
-    this.service.getTrack(trackId) ;
+    this.obsTrack = this.service.getTrack(trackId!);
+    this.obsTrack.subscribe((data) => { this.track = data; console.log(this.track) });
   }
 
   back(){
