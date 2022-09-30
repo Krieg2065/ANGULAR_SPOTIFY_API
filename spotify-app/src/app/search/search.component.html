@@ -1,7 +1,10 @@
 <h1>Search</h1>
+
 <p>
-  <input type="text" #newquery>
-  <button (click)="submit(newquery)">Search</button>
+  <input type="text" #newquery class="form-control"/>
+  <button (click)="submit(newquery)" type="button" class="btn btn-primary">
+    <i class="fas fa-search"></i>
+  </button>
 </p>
 
 <div *ngIf="results">
@@ -12,27 +15,28 @@
   <div *ngIf="results.tracks &&  results.tracks.items.length > 0">
     <h1>Results</h1>
     <div class="row">
-      <div class="col-sm-6 col-md-4" *ngFor="let t of results.tracks.items">
-        <div class="thumbnail">
+      
+      <div class="col-md-3" *ngFor="let t of results.tracks.items">
+        <div class="thumbnail" >
 
           <div class="content">
             <img src="{{ t.album.images[0].url }}" class="img-responsive">
             <div class="caption">
               <h3>
-                <a [routerLink]="['/artists', t.artists[0].id]">
+                <a [routerLink]="['/artists', t.artists[0].id]" style="color : white">
                   {{ t.artists[0].name }}
                 </a>
               </h3>
               <br>
               <p>
-                <a [routerLink]="['/tracks', t.id]">
+                <a [routerLink]="['/tracks', t.id]" style="color : #808080">
                   {{ t.name }}
                 </a>
               </p>
             </div>
             <div class="attribution">
               <h4>
-                <a [routerLink]="['/albums', t.album.id]">
+                <a [routerLink]="['/albums', t.album.id]" style="color : #808080">
                   {{ t.album.name }}
                 </a>
               </h4>

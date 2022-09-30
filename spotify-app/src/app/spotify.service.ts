@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 //Dichiaro che il servizio è iniettabile agli altri componenti a partire dal componente root
-const oauth = 'Bearer BQAFhuPhvxR1HhhlBUn4fYxZJ5AFCQfC41sDvtiXfARQx81BTUwmXvwMhamN-h7ZQKgcVr6tYS0LxRLWJxPB_iUSzw3HEWrIG4WaY2El2QSUDUBjz0njooSO1RRLg9aTSMImg6kc5aWxL80Liie1ygwz3yS17gPr30x21kg5xmuNIinLwmMfAEzY4pqgjxrrq58'
+const oauth = 'Bearer BQCRj4inoLkWyUw7-GjX3X6GCemmYJLnEg0QtDg_VSm2dizfrUstKLXuRH3AL7GvdxxvUjKhodwfGL8d1K7Y9vVoPPY3K_Ox4LcwAf7L0EQqqgW8TJtVi51Zcu3o_l-6CxUrbKyET82WCK19F-ki0ycl4qFKaV80DdwraJl5QMdNvypyd-mSCncYE53_25mM470'
 @Injectable({
   providedIn: 'root'  
 })
