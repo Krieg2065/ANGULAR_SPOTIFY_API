@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 //Dichiaro che il servizio è iniettabile agli altri componenti a partire dal componente root
-const oauth = 'Bearer BQCRj4inoLkWyUw7-GjX3X6GCemmYJLnEg0QtDg_VSm2dizfrUstKLXuRH3AL7GvdxxvUjKhodwfGL8d1K7Y9vVoPPY3K_Ox4LcwAf7L0EQqqgW8TJtVi51Zcu3o_l-6CxUrbKyET82WCK19F-ki0ycl4qFKaV80DdwraJl5QMdNvypyd-mSCncYE53_25mM470'
+const oauth = 'Bearer BQAKXcMZmd_iXDrCCyUxPcMkBYGAlkfjj3sjZtKxf9NmMdyzjMVAXm39Mk0sWRiu37Xb9o4qmA6mCBA4l0WFah7C10y-AOd6w3uYeI2oDzsW96LM1aJyrzNez5pdZwYHSc8kkRr1TnqsRl0pOzv4i6Rc23zIArZQ5WEQRbm4zjNDiXR4iNmnmYMoDE4o-QB1zDY'
 @Injectable({
   providedIn: 'root'  
 })
@@ -37,6 +37,29 @@ export class SpotifyService {
   getArt(ArtId:string) 
   {
     const url = `https://api.spotify.com/v1/artists/${ArtId}`;
+    const headers = new HttpHeaders({
+      Authorization: oauth
+    });
+
+    let obsTracks = this.http.get(url, { headers });
+    return obsTracks;
+
+  }
+  getAlb(AlbId:string) 
+  {
+    const url = `https://api.spotify.com/v1/albums/${AlbId}`;
+    const headers = new HttpHeaders({
+      Authorization: oauth
+    });
+
+    let obsTracks = this.http.get(url, { headers });
+    return obsTracks;
+
+  }
+
+  getAlbums(AlbId:string) 
+  {
+    const url = 'https://api.spotify.com/v1/artists/' + AlbId + '/albums?market=US&album_type=single';
     const headers = new HttpHeaders({
       Authorization: oauth
     });
